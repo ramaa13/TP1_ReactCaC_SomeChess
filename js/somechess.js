@@ -240,17 +240,17 @@ function content() {
     sectionTitulo.appendChild(fuenteGames);
 
     for (let i = 0; i < someGames.length; i++) {
-      const linkFuente = document.createElement("a");
-      linkFuente.setAttribute("target", "_blank");
-      linkFuente.href = someGames[i].url;
+      const linkGames = document.createElement("a");
+      linkGames.setAttribute("target", "_blank");
+      linkGames.href = someGames[i].url;
 
-      const fuenteIndex = document.createElement("p");
-      fuenteIndex.innerText = someGames[i].name;
-      fuenteIndex.classList.add("w3-center");
-      fuenteIndex.setAttribute("style", "font-style: italic;");
+      const nombreGames = document.createElement("p");
+      nombreGames.innerText = someGames[i].name;
+      nombreGames.classList.add("w3-center");
+      nombreGames.setAttribute("style", "font-style: italic;");
 
-      linkFuente.appendChild(fuenteIndex);
-      sectionTitulo.appendChild(linkFuente);
+      linkGames.appendChild(nombreGames);
+      sectionTitulo.appendChild(linkGames);
     }
 
     mainSection.appendChild(sectionTitulo);
