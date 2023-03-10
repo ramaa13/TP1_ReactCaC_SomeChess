@@ -35,6 +35,7 @@ function menu() {
     itemLink.classList.add("w3-button");
     itemLink.classList.add("w3-mobile");
     itemLink.classList.add("w3-right");
+    itemLink.classList.add("w3-large");
     itemLink.textContent = nav_elements[i].nombre;
     itemLink.href = nav_elements[i].url;
     listHTML.appendChild(itemLink);
@@ -45,6 +46,7 @@ function menu() {
   logo.classList.add("logo");
   logo.classList.add("w3-left");
   logo.classList.add("w3-animate-opacity");
+  logo.classList.add("w3-hover-opacity");
 
   const navHTML = document.querySelector("nav");
   navHTML.appendChild(logo);
