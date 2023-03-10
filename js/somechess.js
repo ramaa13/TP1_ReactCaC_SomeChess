@@ -229,17 +229,17 @@ function content() {
     const someGames = [
       {
         id: "10206883",
-        name: "Byrne vs. Fischer (1956)",
+        name: "Byrne vs. Fischer - 1956 (Chess.com)",
         url: "https://www.chess.com/terms/game-of-the-century-chess",
       },
       {
         id: "10206869",
-        name: "Anderssen vs. Kieseritzky (1851)",
+        name: "Anderssen vs. Kieseritzky - 1851 (Chess.com)",
         url: "https://www.chess.com/terms/immortal-game-chess",
       },
       {
         id: "10206753",
-        name: "Morphy vs. Duke Karl / Count Isouard (1858)",
+        name: "Morphy vs. Duke Karl / Count Isouard - 1858 (Chess.com)",
         url: "https://www.chess.com/terms/opera-game-chess",
       },
     ];
@@ -339,7 +339,7 @@ function content() {
     linkTactica.href = "https://www.chess.com/daily-chess-puzzle";
 
     const urlTactica = document.createElement("p");
-    urlTactica.innerText = "Puzzle diario";
+    urlTactica.innerText = "Puzzle diario (Chess.com)";
     urlTactica.classList.add("w3-center");
     urlTactica.setAttribute("style", "font-style: italic;");
 
@@ -349,7 +349,7 @@ function content() {
       "https://www.chess.com/es/terms/hoja-de-repaso-para-principiantes";
 
     const fuenteRepaso = document.createElement("p");
-    fuenteRepaso.innerText = "Hojas de repaso para principiantes";
+    fuenteRepaso.innerText = "Hojas de repaso para principiantes (Chess.com)";
     fuenteRepaso.classList.add("w3-center");
     fuenteRepaso.setAttribute("style", "font-style: italic;");
 
