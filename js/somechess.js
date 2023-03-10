@@ -62,7 +62,6 @@ function menu() {
   navHTML.appendChild(listHTML);
 
   const headerHTML = document.querySelector("header");
-  headerHTML.classList.add("w3-top");
 }
 
 /* ----------------
@@ -95,7 +94,6 @@ function footer() {
 
   const footerHTML = document.querySelector("footer");
   footerHTML.appendChild(listFooter);
-  footerHTML.classList.add("w3-bottom");
 }
 
 /* ==================================
@@ -163,21 +161,20 @@ function content() {
       section.classList.add("w3-right");
       section.classList.add("w3-round");
       section.classList.add("section");
-      pContent = document.createElement("p");
+      const pContent = document.createElement("p");
       pContent.textContent = rules[i].regla;
       section.appendChild(pContent);
-      section.classList.add("animado");
 
       const imgSection = document.createElement("img");
       imgSection.src = rules[i].img;
       imgSection.classList.add("w3-image");
       imgSection.classList.add("w3-left");
       imgSection.classList.add("imgSection");
-      imgSection.classList.add("animado");
 
-      containerSection = document.createElement("div");
+      const containerSection = document.createElement("div");
       containerSection.classList.add("w3-row");
       containerSection.classList.add("containerSection");
+      containerSection.classList.add("animado");
 
       containerSection.appendChild(imgSection);
       containerSection.appendChild(section);
@@ -187,10 +184,126 @@ function content() {
     /* --------------------
     Contenido de games.html
     ----------------------- */
+    const someGames = [
+      {
+        id: "10206883",
+      },
+      {
+        id: "10206869",
+      },
+      {
+        id: "10206753",
+      },
+    ];
+    for (let i = 0; i < someGames.length; i++) {
+      const section = document.createElement("section");
+      section.classList.add("w3-container");
+      section.classList.add("w3-round");
+      section.classList.add("w3-center");
+      section.classList.add("w3-twothird");
+      section.classList.add("section");
+      section.classList.add("w3-row");
+      section.classList.add("containerSection");
+      section.classList.add("animado");
+
+      const iframeGame = document.createElement("iframe");
+      iframeGame.setAttribute("id", someGames[i].id);
+      iframeGame.setAttribute("allowtransparency", "true");
+      iframeGame.setAttribute("frameborder", "0");
+      iframeGame.setAttribute("style", "width:100%;border:none;");
+      iframeGame.setAttribute(
+        "src",
+        "//www.chess.com/emboard?id=" + someGames[i].id
+      );
+
+      section.appendChild(iframeGame);
+      window.addEventListener("message", (e) => {
+        e["data"] &&
+          someGames[i].id === e["data"]["id"] &&
+          document.getElementById(`${e["data"]["id"]}`) &&
+          (document.getElementById(`${e["data"]["id"]}`).style.height = `${
+            e["data"]["frameHeight"] + 30
+          }px`);
+      });
+
+      mainSection.appendChild(section);
+    }
   } else if (document.title === "Study") {
     /* --------------------
     Contenido de study.html
     ----------------------- */
+
+    const someGames = [
+      {
+        id: "10206903",
+      },
+    ];
+    for (let i = 0; i < someGames.length; i++) {
+      const section = document.createElement("section");
+      section.classList.add("w3-container");
+      section.classList.add("w3-round");
+      section.classList.add("w3-center");
+      section.classList.add("w3-twothird");
+      section.classList.add("section");
+      section.classList.add("w3-row");
+      section.classList.add("containerSection");
+      section.classList.add("animado");
+      const tituloTactica = document.createElement("h2");
+      tituloTactica.innerText = "Ejercicio diario";
+      section.appendChild(tituloTactica);
+
+      const iframeGame = document.createElement("iframe");
+      iframeGame.setAttribute("id", someGames[i].id);
+      iframeGame.setAttribute("allowtransparency", "true");
+      iframeGame.setAttribute("frameborder", "0");
+      iframeGame.setAttribute("style", "width:100%;border:none;");
+      iframeGame.setAttribute(
+        "src",
+        "//www.chess.com/emboard?id=" + someGames[i].id
+      );
+
+      section.appendChild(iframeGame);
+
+      window.addEventListener("message", (e) => {
+        e["data"] &&
+          someGames[i].id === e["data"]["id"] &&
+          document.getElementById(`${e["data"]["id"]}`) &&
+          (document.getElementById(`${e["data"]["id"]}`).style.height = `${
+            e["data"]["frameHeight"] + 30
+          }px`);
+      });
+
+      mainSection.appendChild(section);
+    }
+    const someTips = [
+      {
+        imgURL:
+          "https://images.chesscomfiles.com/uploads/v1/images_users/tiny_mce/PabloLafuente/phpEteE0I.png",
+      },
+      {
+        imgURL:
+          "https://images.chesscomfiles.com/uploads/v1/images_users/tiny_mce/PabloLafuente/phpzYsVgr.png",
+      },
+    ];
+    for (let i = 0; i < someTips.length; i++) {
+      const section = document.createElement("section");
+      section.classList.add("w3-container");
+      section.classList.add("w3-round");
+      section.classList.add("w3-center");
+      section.classList.add("w3-twothird");
+      section.classList.add("section");
+      section.classList.add("w3-row");
+      section.classList.add("containerSection");
+      section.classList.add("animado");
+
+      const imgSection = document.createElement("img");
+      imgSection.src = someTips[i].imgURL;
+      imgSection.classList.add("w3-image");
+      imgSection.classList.add("w3-center");
+
+      section.appendChild(imgSection);
+      mainSection.appendChild(section);
+    }
   }
 }
 
@@ -202,6 +315,7 @@ title();
 
 /* ==================================
 Animaciones */
+
 let animado = document.querySelectorAll(".animado");
 
 function posicionScroll() {
