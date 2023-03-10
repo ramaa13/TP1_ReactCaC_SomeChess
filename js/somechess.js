@@ -102,7 +102,7 @@ function content() {
     chessImg.src = "./img/chess_image.jpg";
     chessImg.classList.add("chessImg");
     chessImg.classList.add("w3-image");
-    chessImg.classList.add("w3-animate-top");
+    chessImg.classList.add("w3-animate-opacity");
     mainSection.appendChild(chessImg);
 
     const someRules = [
