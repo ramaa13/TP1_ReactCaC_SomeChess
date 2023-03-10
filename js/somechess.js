@@ -3,12 +3,24 @@ Títulos de cada página */
 
 function title() {
   const site_name = "Some Chess";
-  if (document.title === "Index") {
-    document.title = site_name + " - Inicio";
-  } else if (document.title === "Games") {
-    document.title = site_name + " - Algunas partidas";
-  } else if (document.title === "Study") {
-    document.title = site_name + " - Algo de práctica y teoría";
+  const titles = [
+    {
+      baseTitle: "Index",
+      actualTitle: site_name + " - Inicio",
+    },
+    {
+      baseTitle: "Games",
+      actualTitle: site_name + " - Algunas partidas",
+    },
+    {
+      baseTitle: "Study",
+      actualTitle: site_name + " - Algo de práctica y teoría",
+    },
+  ];
+  for (let i = 0; i < titles.length; i++) {
+    if (document.title === titles[i].baseTitle) {
+      document.title = titles[i].actualTitle;
+    }
   }
 }
 
