@@ -105,6 +105,14 @@ function content() {
     chessImg.classList.add("w3-animate-opacity");
     mainSection.appendChild(chessImg);
 
+    const tituloIndex = document.createElement("h2");
+    tituloIndex.innerText = "Movimiento de las piezas";
+    tituloIndex.classList.add("w3-center");
+    tituloIndex.classList.add("section");
+    tituloIndex.classList.add("w3-round");
+    tituloIndex.classList.add("w3-animate-opacity");
+    mainSection.appendChild(tituloIndex);
+
     const someRules = [
       {
         pieza: "Torre",
