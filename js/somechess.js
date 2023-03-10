@@ -107,13 +107,24 @@ function content() {
     chessImg.classList.add("w3-animate-opacity");
     mainSection.appendChild(chessImg);
 
+    const divTitulo = document.createElement("div");
+    divTitulo.classList.add("section");
+    divTitulo.classList.add("w3-round");
+    divTitulo.classList.add("w3-animate-opacity");
+
     const tituloIndex = document.createElement("h2");
-    tituloIndex.innerText = "Movimiento de las piezas";
+    tituloIndex.innerText = "Movimientos básicos de las piezas";
     tituloIndex.classList.add("w3-center");
-    tituloIndex.classList.add("section");
-    tituloIndex.classList.add("w3-round");
-    tituloIndex.classList.add("w3-animate-opacity");
-    mainSection.appendChild(tituloIndex);
+
+    const fuenteIndex = document.createElement("p");
+    fuenteIndex.innerText =
+      "(Fuente: https://es.wikipedia.org/wiki/Leyes_del_ajedrez)";
+    fuenteIndex.classList.add("w3-center");
+    fuenteIndex.setAttribute("style", "font-style: italic;");
+
+    divTitulo.appendChild(tituloIndex);
+    divTitulo.appendChild(fuenteIndex);
+    mainSection.appendChild(divTitulo);
 
     const someRules = [
       {
