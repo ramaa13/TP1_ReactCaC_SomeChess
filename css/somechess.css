@@ -4,6 +4,7 @@
 
 .navbar {
     background-color: #546A7B !important;
+    opacity: 80%;
 }
 
 nav,
@@ -15,18 +16,41 @@ nav,
 }
 
 body {
-    background-color: #e5e5f7;
-    background-size: 10px 10px;
-    background-image: repeating-linear-gradient(45deg, #0D1F2D 0, #0D1F2D 6px, #9EA3B0 0, #9EA3B0 50%);
+    background-color: #000000;
+}
+
+main {
+    margin: 6% 3% 8% 3%;
+}
+
+.mainSection {
+    background-color: #000000;
 }
 
 .logo {
     height: auto;
     max-width: 200px;
+    margin: 10px;
 }
 
-/* Animación */
+.chessImg {
+    width: 100%;
+}
 
+.section {
+    background-color: #fff6f5;
+}
+
+.imgSection {
+    width: 100px;
+}
+
+.containerSection {
+    margin: 2% 5% 0% 12%;
+}
+
+/* ===============================
+/* Animación */
 
 .animado {
     opacity: 0;

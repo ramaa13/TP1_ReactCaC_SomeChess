@@ -10,27 +10,6 @@ TODO:
 */
 
 /* ==================================
-Animaciones */
-let animado = document.querySelectorAll(".animado");
-
-function posicionScroll() {
-  let scrollTop = document.documentElement.scrollTop;
-  for (let i = 0; i < animado.length; i++) {
-    let alturaElemento = animado[i].offsetTop;
-    if (alturaElemento / 2 < scrollTop) {
-      animado[i].style.opacity = 1;
-      animado[i].classList.remove("transicionIzq");
-      animado[i].classList.add("transicionDer");
-    } else {
-      animado[i].style.opacity = 0;
-      animado[i].classList.remove("transicionDer");
-      animado[i].classList.add("transicionIzq");
-    }
-  }
-}
-window.addEventListener("scroll", posicionScroll);
-
-/* ==================================
 Títulos de cada página */
 
 function title() {
@@ -65,6 +44,7 @@ function menu() {
     itemLink = document.createElement("a");
     itemLink.classList.add("w3-bar-item");
     itemLink.classList.add("w3-button");
+    itemLink.classList.add("w3-mobile");
     itemLink.classList.add("w3-right");
     itemLink.textContent = nav_elements[i].nombre;
     itemLink.href = nav_elements[i].url;
@@ -74,8 +54,8 @@ function menu() {
   const logo = document.createElement("img");
   logo.src = "./img/logo.png";
   logo.classList.add("logo");
-  logo.classList.add("w3-bar-item");
   logo.classList.add("w3-left");
+  logo.classList.add("w3-animate-opacity");
 
   const navHTML = document.querySelector("nav");
   navHTML.appendChild(logo);
@@ -121,11 +101,88 @@ function footer() {
 /* ==================================
 Contenido de las páginas */
 
+const mainSection = document.querySelector("main");
+mainSection.classList.add("w3-container");
+mainSection.classList.add("mainSection");
+
 function content() {
   if (document.title === "Index") {
     /* --------------------
     Contenido de index.html
     ----------------------- */
+
+    const chessImg = document.createElement("img");
+    chessImg.src = "./img/chess_image.jpg";
+    chessImg.classList.add("chessImg");
+    chessImg.classList.add("w3-image");
+    chessImg.classList.add("w3-animate-top");
+    mainSection.appendChild(chessImg);
+
+    const rules = [
+      {
+        pieza: "Torre",
+        img: "./img/torre.png",
+        regla:
+          "La torre se mueve en direcciones ortogonales, es decir, por las filas (horizontales) y columnas (verticales), no pudiendo moverse por las diagonales. Ella puede moverse tantas casillas como se desee por las columnas y filas, pero solo en una dirección en cada turno.",
+      },
+      {
+        pieza: "Alfil",
+        img: "./img/alfil.png",
+        regla:
+          "El alfil se mueve en direcciones diagonales, es decir, en la dirección de los escaques del mismo color. Se puede mover tantas casillas como desee por las diagonales, pero solo en una dirección (cada turno), existe el alfil de escaques negros y el alfil de escaques blancos, y no pueden cambiar de color durante el juego.",
+      },
+      {
+        pieza: "Reina",
+        img: "./img/reina.png",
+        regla:
+          "La reina puede moverse en horizontal, vertical o diagonal, pero solo en una dirección en cada turno. La dama se desplaza con los movimientos de todas las demás piezas, excepto el caballo, desplazándose cuantos escaques quiera.",
+      },
+      {
+        pieza: "Rey",
+        img: "./img/rey.png",
+        regla:
+          "El rey puede moverse en todas las direcciones un solo escaque cada vez, mientras el movimiento no sea para un escaque amenazado por una pieza adversaria. El rey también puede capturar cualquier pieza adversaria, mientras que no tenga otra pieza defendiéndola. Un movimiento especial es el enroque, en el que el rey mueve dos escaques hacia una de las torres, siempre que se encuentren libres y no estén amenazados por ninguna pieza adversaria. Un rey no puede dar jaque a otro rey.",
+      },
+      {
+        pieza: "Caballo",
+        img: "./img/caballo.png",
+        regla:
+          "El caballo puede moverse a cualquiera de los escaques más próximos que no sean de la misma fila, columna o diagonal. Normalmente se dice que mueve en forma de L, esto es, mueve dos escaques en horizontal o vertical y después un escaque vertical u horizontal, o viceversa. El movimiento siempre termina en un escaque de color diferente al de salida. El caballo puede saltar sobre cualquier pieza suya o del adversario. La captura ocurre cuando una pieza del adversario se encuentra en el escaque de destino del movimiento realizado por el caballo.",
+      },
+      {
+        pieza: "Peón",
+        img: "./img/peon.png",
+        regla:
+          "Un peón se mueve hacia adelante una casilla, si este escaque está vacío. Si el peón todavía no se ha movido, en su primer movimiento también tiene la opción de mover dos escaques hacia adelante, siempre que ambos escaques estén vacíos. Los peones no se pueden mover hacia atrás. Los peones son las únicas piezas que capturan de manera diferente de cómo se mueven. Un peón puede capturar una pieza adversaria en cualquiera de los escaques diagonales en frente del peón (pero no se puede mover a esos escaques si están vacíos). El peón también participa en dos movimientos especiales: captura al paso y promoción.",
+      },
+    ];
+    for (let i = 0; i < rules.length; i++) {
+      const section = document.createElement("section");
+      section.classList.add("w3-container");
+      section.classList.add("w3-twothird");
+      section.classList.add("w3-right");
+      section.classList.add("w3-round");
+      section.classList.add("section");
+      pContent = document.createElement("p");
+      pContent.textContent = rules[i].regla;
+      section.appendChild(pContent);
+      section.classList.add("animado");
+
+      const imgSection = document.createElement("img");
+      imgSection.src = rules[i].img;
+      imgSection.classList.add("w3-image");
+      imgSection.classList.add("w3-left");
+      imgSection.classList.add("imgSection");
+      imgSection.classList.add("animado");
+
+      containerSection = document.createElement("div");
+      containerSection.classList.add("w3-row");
+      containerSection.classList.add("containerSection");
+
+      containerSection.appendChild(imgSection);
+      containerSection.appendChild(section);
+      mainSection.appendChild(containerSection);
+    }
   } else if (document.title === "Games") {
     /* --------------------
     Contenido de games.html
@@ -142,3 +199,24 @@ menu();
 content();
 footer();
 title();
+
+/* ==================================
+Animaciones */
+let animado = document.querySelectorAll(".animado");
+
+function posicionScroll() {
+  let scrollTop = document.documentElement.scrollTop;
+  for (let i = 0; i < animado.length; i++) {
+    let alturaElemento = animado[i].offsetTop;
+    if (alturaElemento * 0.6 < scrollTop) {
+      animado[i].style.opacity = 1;
+      animado[i].classList.remove("transicionIzq");
+      animado[i].classList.add("transicionDer");
+    } else {
+      animado[i].style.opacity = 0;
+      animado[i].classList.remove("transicionDer");
+      animado[i].classList.add("transicionIzq");
+    }
+  }
+}
+window.addEventListener("scroll", posicionScroll);
