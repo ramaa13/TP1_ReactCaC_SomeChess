@@ -1,14 +1,3 @@
-/* 
-TODO:
-- Contenido de cada página:
-    - Index
-    - Games
-    - Study
-- Navbar
-- Footbar
-- Transiciones visuales?
-*/
-
 /* ==================================
 Títulos de cada página */
 
