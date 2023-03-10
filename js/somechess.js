@@ -8,7 +8,7 @@ function title() {
   } else if (document.title === "Games") {
     document.title = site_name + " - Algunas partidas";
   } else if (document.title === "Study") {
-    document.title = site_name + " - Algo de teoría y táctica";
+    document.title = site_name + " - Algo de práctica y teoría";
   }
 }
 
@@ -20,7 +20,7 @@ Contenido de Nav
 ---------------- */
 function menu() {
   const nav_elements = [
-    { nombre: "Algo de teoría y táctica", url: "./study.html" },
+    { nombre: "Algo de práctica y teoría", url: "./study.html" },
     { nombre: "Algunas partidas", url: "./games.html" },
     { nombre: "Inicio", url: "./index.html" },
   ];
@@ -108,10 +108,11 @@ function content() {
     chessImg.classList.add("w3-animate-opacity");
     mainSection.appendChild(chessImg);
 
-    const divTitulo = document.createElement("div");
-    divTitulo.classList.add("section");
-    divTitulo.classList.add("w3-round");
-    divTitulo.classList.add("w3-animate-opacity");
+    const sectionTitulo = document.createElement("section");
+    sectionTitulo.classList.add("section");
+    sectionTitulo.classList.add("w3-round");
+    sectionTitulo.classList.add("w3-padding-large");
+    sectionTitulo.classList.add("w3-animate-opacity");
 
     const tituloIndex = document.createElement("h2");
     tituloIndex.innerText = "Movimientos básicos de las piezas";
@@ -127,10 +128,10 @@ function content() {
     fuenteIndex.classList.add("w3-center");
     fuenteIndex.setAttribute("style", "font-style: italic;");
 
+    sectionTitulo.appendChild(tituloIndex);
     linkFuente.appendChild(fuenteIndex);
-    divTitulo.appendChild(tituloIndex);
-    divTitulo.appendChild(linkFuente);
-    mainSection.appendChild(divTitulo);
+    sectionTitulo.appendChild(linkFuente);
+    mainSection.appendChild(sectionTitulo);
 
     const someRules = [
       {
@@ -200,17 +201,60 @@ function content() {
     /* --------------------
     Contenido de games.html
     ----------------------- */
+
     const someGames = [
       {
         id: "10206883",
+        name: "Byrne vs. Fischer (1956)",
+        url: "https://www.chess.com/terms/game-of-the-century-chess",
       },
       {
         id: "10206869",
+        name: "Anderssen vs. Kieseritzky (1851)",
+        url: "https://www.chess.com/terms/immortal-game-chess",
       },
       {
         id: "10206753",
+        name: "Morphy vs. Duke Karl / Count Isouard (1858)",
+        url: "https://www.chess.com/terms/opera-game-chess",
       },
     ];
+
+    const sectionTitulo = document.createElement("section");
+    sectionTitulo.classList.add("section");
+    sectionTitulo.classList.add("w3-round");
+    sectionTitulo.classList.add("w3-padding-large");
+    sectionTitulo.classList.add("w3-margin-top");
+    sectionTitulo.classList.add("w3-animate-opacity");
+
+    const tituloGames = document.createElement("h2");
+    tituloGames.innerText = "Algunas partidas famosas";
+    tituloGames.classList.add("w3-center");
+    sectionTitulo.appendChild(tituloGames);
+
+    const fuenteGames = document.createElement("h6");
+    fuenteGames.innerText = "Fuentes:";
+    fuenteGames.classList.add("w3-margin-top");
+    fuenteGames.classList.add("w3-center");
+    fuenteGames.setAttribute("style", "font-weight: bold;");
+    sectionTitulo.appendChild(fuenteGames);
+
+    for (let i = 0; i < someGames.length; i++) {
+      const linkFuente = document.createElement("a");
+      linkFuente.setAttribute("target", "_blank");
+      linkFuente.href = someGames[i].url;
+
+      const fuenteIndex = document.createElement("p");
+      fuenteIndex.innerText = someGames[i].name;
+      fuenteIndex.classList.add("w3-center");
+      fuenteIndex.setAttribute("style", "font-style: italic;");
+
+      linkFuente.appendChild(fuenteIndex);
+      sectionTitulo.appendChild(linkFuente);
+    }
+
+    mainSection.appendChild(sectionTitulo);
+
     for (let i = 0; i < someGames.length; i++) {
       const section = document.createElement("section");
       section.classList.add("w3-container");
@@ -249,6 +293,51 @@ function content() {
     Contenido de study.html
     ----------------------- */
 
+    const sectionTitulo = document.createElement("section");
+    sectionTitulo.classList.add("section");
+    sectionTitulo.classList.add("w3-round");
+    sectionTitulo.classList.add("w3-padding-large");
+    sectionTitulo.classList.add("w3-margin-top");
+    sectionTitulo.classList.add("w3-animate-opacity");
+
+    const tituloStudy = document.createElement("h2");
+    tituloStudy.innerText = "Algo de práctica y teoría";
+    tituloStudy.classList.add("w3-center");
+
+    const fuenteStudy = document.createElement("h6");
+    fuenteStudy.innerText = "Fuentes:";
+    fuenteStudy.classList.add("w3-center");
+    fuenteStudy.classList.add("w3-margin-top");
+    fuenteStudy.setAttribute("style", "font-weight: bold;");
+
+    const linkTactica = document.createElement("a");
+    linkTactica.setAttribute("target", "_blank");
+    linkTactica.href = "https://www.chess.com/daily-chess-puzzle";
+
+    const urlTactica = document.createElement("p");
+    urlTactica.innerText = "Puzzle diario";
+    urlTactica.classList.add("w3-center");
+    urlTactica.setAttribute("style", "font-style: italic;");
+
+    const linkRepaso = document.createElement("a");
+    linkRepaso.setAttribute("target", "_blank");
+    linkRepaso.href =
+      "https://www.chess.com/es/terms/hoja-de-repaso-para-principiantes";
+
+    const fuenteRepaso = document.createElement("p");
+    fuenteRepaso.innerText = "Hojas de repaso para principiantes";
+    fuenteRepaso.classList.add("w3-center");
+    fuenteRepaso.setAttribute("style", "font-style: italic;");
+
+    sectionTitulo.appendChild(tituloStudy);
+
+    sectionTitulo.appendChild(fuenteStudy);
+    linkTactica.appendChild(urlTactica);
+    sectionTitulo.appendChild(linkTactica);
+    linkRepaso.appendChild(fuenteRepaso);
+    sectionTitulo.appendChild(linkRepaso);
+    mainSection.appendChild(sectionTitulo);
+
     const section = document.createElement("section");
     section.classList.add("w3-container");
     section.classList.add("w3-round");
@@ -262,15 +351,6 @@ function content() {
     const tituloTactica = document.createElement("h2");
     tituloTactica.innerText = "Ejercicio diario";
     section.appendChild(tituloTactica);
-
-    const linkTactica = document.createElement("a");
-    linkTactica.setAttribute("target", "_blank");
-    linkTactica.href = "https://www.chess.com/daily-chess-puzzle";
-
-    const urlTactica = document.createElement("p");
-    urlTactica.innerText = "(Fuente: https://www.chess.com/daily-chess-puzzle)";
-    linkTactica.appendChild(urlTactica);
-    section.appendChild(linkTactica);
 
     const iframeGame = document.createElement("iframe");
     iframeGame.setAttribute("frameborder", "0");
