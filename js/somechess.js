@@ -25,12 +25,12 @@ function menu() {
     { nombre: "Inicio", url: "./index.html" },
   ];
 
-  let listHTML = document.createElement("div");
+  const listHTML = document.createElement("div");
   listHTML.classList.add("w3-bar");
   listHTML.classList.add("navbar");
 
   for (let i = 0; i < nav_elements.length; i++) {
-    itemLink = document.createElement("a");
+    const itemLink = document.createElement("a");
     itemLink.classList.add("w3-bar-item");
     itemLink.classList.add("w3-button");
     itemLink.classList.add("w3-mobile");
@@ -41,6 +41,9 @@ function menu() {
     listHTML.appendChild(itemLink);
   }
 
+  const linkLogo = document.createElement("a");
+  linkLogo.href = "./index.html";
+
   const logo = document.createElement("img");
   logo.src = "./img/logo.png";
   logo.classList.add("logo");
@@ -49,7 +52,9 @@ function menu() {
   logo.classList.add("w3-hover-opacity");
 
   const navHTML = document.querySelector("nav");
-  navHTML.appendChild(logo);
+
+  linkLogo.appendChild(logo);
+  navHTML.appendChild(linkLogo);
   navHTML.appendChild(listHTML);
 
   const headerHTML = document.querySelector("header");
