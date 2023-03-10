@@ -135,18 +135,25 @@ function content() {
     tituloIndex.innerText = "Movimientos básicos de las piezas";
     tituloIndex.classList.add("w3-center");
 
+    const fuenteIndex = document.createElement("h6");
+    fuenteIndex.innerText = "Fuente:";
+    fuenteIndex.classList.add("w3-margin-top");
+    fuenteIndex.classList.add("w3-center");
+    fuenteIndex.setAttribute("style", "font-weight: bold;");
+
     const linkFuente = document.createElement("a");
     linkFuente.setAttribute("target", "_blank");
-    linkFuente.href = "https://es.wikipedia.org/wiki/Leyes_del_ajedrez";
+    linkFuente.href =
+      "https://es.wikipedia.org/wiki/Leyes_del_ajedrez#Movimientos_b%C3%A1sicos";
 
-    const fuenteIndex = document.createElement("p");
-    fuenteIndex.innerText =
-      "(Fuente: https://es.wikipedia.org/wiki/Leyes_del_ajedrez)";
-    fuenteIndex.classList.add("w3-center");
-    fuenteIndex.setAttribute("style", "font-style: italic;");
+    const fuenteMovimientos = document.createElement("p");
+    fuenteMovimientos.innerText = "Movimientos básicos (Wikipedia)";
+    fuenteMovimientos.classList.add("w3-center");
+    fuenteMovimientos.setAttribute("style", "font-style: italic;");
 
     sectionTitulo.appendChild(tituloIndex);
-    linkFuente.appendChild(fuenteIndex);
+    sectionTitulo.appendChild(fuenteIndex);
+    linkFuente.appendChild(fuenteMovimientos);
     sectionTitulo.appendChild(linkFuente);
     mainSection.appendChild(sectionTitulo);
 
