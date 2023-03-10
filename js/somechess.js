@@ -72,6 +72,7 @@ function footer() {
 
   for (let i = 0; i < footer_elements.length; i++) {
     itemLink = document.createElement("a");
+    itemLink.setAttribute("target", "_blank");
     iconItem = document.createElement("i");
     for (let j = 0; j < footer_elements[j].class.length; j++) {
       iconItem.classList.add(footer_elements[i].class[j]);
@@ -116,14 +117,19 @@ function content() {
     tituloIndex.innerText = "Movimientos básicos de las piezas";
     tituloIndex.classList.add("w3-center");
 
+    const linkFuente = document.createElement("a");
+    linkFuente.setAttribute("target", "_blank");
+    linkFuente.href = "https://es.wikipedia.org/wiki/Leyes_del_ajedrez";
+
     const fuenteIndex = document.createElement("p");
     fuenteIndex.innerText =
       "(Fuente: https://es.wikipedia.org/wiki/Leyes_del_ajedrez)";
     fuenteIndex.classList.add("w3-center");
     fuenteIndex.setAttribute("style", "font-style: italic;");
 
+    linkFuente.appendChild(fuenteIndex);
     divTitulo.appendChild(tituloIndex);
-    divTitulo.appendChild(fuenteIndex);
+    divTitulo.appendChild(linkFuente);
     mainSection.appendChild(divTitulo);
 
     const someRules = [
@@ -258,9 +264,19 @@ function content() {
       section.classList.add("w3-row");
       section.classList.add("containerSection");
       section.classList.add("animado");
+
       const tituloTactica = document.createElement("h2");
       tituloTactica.innerText = "Ejercicio diario";
       section.appendChild(tituloTactica);
+
+      const linkTactica = document.createElement("a");
+      linkTactica.setAttribute("target", "_blank");
+      linkTactica.href = "https://www.chess.com/daily-chess-puzzle";
+
+      const urlTactica = document.createElement("p");
+      urlTactica.innerText = "https://www.chess.com/daily-chess-puzzle";
+      linkTactica.appendChild(urlTactica);
+      section.appendChild(linkTactica);
 
       const iframeGame = document.createElement("iframe");
       iframeGame.setAttribute("id", someTactics[i].id);
