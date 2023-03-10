@@ -105,7 +105,7 @@ function content() {
     chessImg.classList.add("w3-animate-top");
     mainSection.appendChild(chessImg);
 
-    const rules = [
+    const someRules = [
       {
         pieza: "Torre",
         img: "./img/torre.png",
@@ -143,7 +143,7 @@ function content() {
           "Un peón se mueve hacia adelante una casilla, si este escaque está vacío. Si el peón todavía no se ha movido, en su primer movimiento también tiene la opción de mover dos escaques hacia adelante, siempre que ambos escaques estén vacíos. Los peones no se pueden mover hacia atrás. Los peones son las únicas piezas que capturan de manera diferente de cómo se mueven. Un peón puede capturar una pieza adversaria en cualquiera de los escaques diagonales en frente del peón (pero no se puede mover a esos escaques si están vacíos). El peón también participa en dos movimientos especiales: captura al paso y promoción.",
       },
     ];
-    for (let i = 0; i < rules.length; i++) {
+    for (let i = 0; i < someRules.length; i++) {
       const section = document.createElement("section");
       section.classList.add("w3-container");
       section.classList.add("w3-twothird");
@@ -151,11 +151,11 @@ function content() {
       section.classList.add("w3-round");
       section.classList.add("section");
       const pContent = document.createElement("p");
-      pContent.textContent = rules[i].regla;
+      pContent.textContent = someRules[i].regla;
       section.appendChild(pContent);
 
       const imgSection = document.createElement("img");
-      imgSection.src = rules[i].img;
+      imgSection.src = someRules[i].img;
       imgSection.classList.add("w3-image");
       imgSection.classList.add("w3-left");
       imgSection.classList.add("imgSection");
@@ -222,12 +222,12 @@ function content() {
     Contenido de study.html
     ----------------------- */
 
-    const someGames = [
+    const someTactics = [
       {
         id: "10206903",
       },
     ];
-    for (let i = 0; i < someGames.length; i++) {
+    for (let i = 0; i < someTactics.length; i++) {
       const section = document.createElement("section");
       section.classList.add("w3-container");
       section.classList.add("w3-round");
@@ -242,20 +242,20 @@ function content() {
       section.appendChild(tituloTactica);
 
       const iframeGame = document.createElement("iframe");
-      iframeGame.setAttribute("id", someGames[i].id);
+      iframeGame.setAttribute("id", someTactics[i].id);
       iframeGame.setAttribute("allowtransparency", "true");
       iframeGame.setAttribute("frameborder", "0");
       iframeGame.setAttribute("style", "width:100%;border:none;");
       iframeGame.setAttribute(
         "src",
-        "//www.chess.com/emboard?id=" + someGames[i].id
+        "//www.chess.com/emboard?id=" + someTactics[i].id
       );
 
       section.appendChild(iframeGame);
 
       window.addEventListener("message", (e) => {
         e["data"] &&
-          someGames[i].id === e["data"]["id"] &&
+          someTactics[i].id === e["data"]["id"] &&
           document.getElementById(`${e["data"]["id"]}`) &&
           (document.getElementById(`${e["data"]["id"]}`).style.height = `${
             e["data"]["frameHeight"] + 30
