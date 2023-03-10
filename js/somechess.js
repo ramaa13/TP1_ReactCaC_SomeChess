@@ -249,58 +249,37 @@ function content() {
     Contenido de study.html
     ----------------------- */
 
-    const someTactics = [
-      {
-        id: "10206903",
-      },
-    ];
-    for (let i = 0; i < someTactics.length; i++) {
-      const section = document.createElement("section");
-      section.classList.add("w3-container");
-      section.classList.add("w3-round");
-      section.classList.add("w3-center");
-      section.classList.add("w3-twothird");
-      section.classList.add("section");
-      section.classList.add("w3-row");
-      section.classList.add("containerSection");
-      section.classList.add("animado");
+    const section = document.createElement("section");
+    section.classList.add("w3-container");
+    section.classList.add("w3-round");
+    section.classList.add("w3-center");
+    section.classList.add("w3-twothird");
+    section.classList.add("section");
+    section.classList.add("w3-row");
+    section.classList.add("containerSection");
+    section.classList.add("animado");
 
-      const tituloTactica = document.createElement("h2");
-      tituloTactica.innerText = "Ejercicio diario";
-      section.appendChild(tituloTactica);
+    const tituloTactica = document.createElement("h2");
+    tituloTactica.innerText = "Ejercicio diario";
+    section.appendChild(tituloTactica);
 
-      const linkTactica = document.createElement("a");
-      linkTactica.setAttribute("target", "_blank");
-      linkTactica.href = "https://www.chess.com/daily-chess-puzzle";
+    const linkTactica = document.createElement("a");
+    linkTactica.setAttribute("target", "_blank");
+    linkTactica.href = "https://www.chess.com/daily-chess-puzzle";
 
-      const urlTactica = document.createElement("p");
-      urlTactica.innerText = "https://www.chess.com/daily-chess-puzzle";
-      linkTactica.appendChild(urlTactica);
-      section.appendChild(linkTactica);
+    const urlTactica = document.createElement("p");
+    urlTactica.innerText = "(Fuente: https://www.chess.com/daily-chess-puzzle)";
+    linkTactica.appendChild(urlTactica);
+    section.appendChild(linkTactica);
 
-      const iframeGame = document.createElement("iframe");
-      iframeGame.setAttribute("id", someTactics[i].id);
-      iframeGame.setAttribute("allowtransparency", "true");
-      iframeGame.setAttribute("frameborder", "0");
-      iframeGame.setAttribute("style", "width:100%;border:none;");
-      iframeGame.setAttribute(
-        "src",
-        "//www.chess.com/emboard?id=" + someTactics[i].id
-      );
+    const iframeGame = document.createElement("iframe");
+    iframeGame.setAttribute("frameborder", "0");
+    iframeGame.setAttribute("style", "width:100%;height:500px;border:none;");
+    iframeGame.setAttribute("src", "https://www.chess.com/daily_puzzle");
 
-      section.appendChild(iframeGame);
+    section.appendChild(iframeGame);
+    mainSection.appendChild(section);
 
-      window.addEventListener("message", (e) => {
-        e["data"] &&
-          someTactics[i].id === e["data"]["id"] &&
-          document.getElementById(`${e["data"]["id"]}`) &&
-          (document.getElementById(`${e["data"]["id"]}`).style.height = `${
-            e["data"]["frameHeight"] + 30
-          }px`);
-      });
-
-      mainSection.appendChild(section);
-    }
     const someTips = [
       {
         imgURL:
